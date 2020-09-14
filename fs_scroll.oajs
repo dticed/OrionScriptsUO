@@ -1,11 +1,12 @@
 function fs_scroll() {
   puxar_reagentes()
   puxar_blank_scroll()
-  while (Player.Weight() < 450) {
+  while (Orion.Count('0x0E34', '0x0000') > 1) {
     fazer_scroll()
     Orion.Wait(600)
     guardar_scroll()
   }
+  fs_scroll()
 }
 
 function fazer_scroll() {
@@ -47,6 +48,7 @@ function puxar_blank_scroll() {
   var quantidade = 255;
   Orion.MoveItem(scroll[0], quantidade, 'backpack');
   Orion.Wait(400);
+
 }
 
 function guardar_scroll() {
