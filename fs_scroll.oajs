@@ -31,15 +31,15 @@ function puxar_reagentes() {
 
   var regs = ['0x0F8C', '0x0F8D']
   var reg1 = Orion.FindType('0x0F8C', -1, 'bauregs');
-   Orion.Wait(600);
+   Orion.Wait(1000);
   var reg2 = Orion.FindType('0x0F8D', -1, 'bauregs');
 
   var quantidade = 300;
 
   Orion.MoveItem(reg1[0], quantidade, 'backpack');
-  Orion.Wait(600);
+  Orion.Wait(1000);
   Orion.MoveItem(reg2[0], quantidade, 'backpack');
-  Orion.Wait(600);
+  Orion.Wait(1000);
 
 }
 
