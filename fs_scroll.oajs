@@ -10,7 +10,10 @@ function fs_scroll() {
 }
 
 function fazer_scroll() {
-  Orion.UseObject('0x4031FF64');
+  if (!Orion.FindObject('ink')) {
+    setarInk()
+  }
+  Orion.UseObject('ink')
   if (Orion.WaitForGump(1000)) {
     var gump0 = Orion.GetGump('last');
     if ((gump0 !== null)) {
@@ -28,6 +31,7 @@ function puxar_reagentes() {
 
   var regs = ['0x0F8C', '0x0F8D']
   var reg1 = Orion.FindType('0x0F8C', -1, 'bauregs');
+   Orion.Wait(600);
   var reg2 = Orion.FindType('0x0F8D', -1, 'bauregs');
 
   var quantidade = 300;
@@ -63,5 +67,11 @@ function guardar_scroll() {
 function setarBau() {
   Orion.Print('Selecione o bau que deseja pegar reagentes');
   Orion.AddObject('bauregs');
+  Orion.Wait(10000);
+}
+
+function setarInk() {
+  Orion.Print('Selecione o ink and pen');
+  Orion.AddObject('ink');
   Orion.Wait(10000);
 }
